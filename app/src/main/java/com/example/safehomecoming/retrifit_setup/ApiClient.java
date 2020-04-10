@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiClient
 {
-    public static final String BASE_URL = "http://ec2-13-125-121-5.ap-northeast-2.compute.amazonaws.com/"; // 정화씨 aws
+    public static final String BASE_URL = "http://ec2-13-125-121-5.ap-northeast-2.compute.amazonaws.com/"; // 영주 누나 aws
 
     private static Retrofit retrofit;
 

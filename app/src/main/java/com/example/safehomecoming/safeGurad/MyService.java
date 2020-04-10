@@ -20,14 +20,14 @@ public class MyService extends Service {
         return null;
     }
 
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        switch (keyCode) {
-            case KeyEvent.KEYCODE_BACK:
-                Log.d("KeyUP Event", "뒤로 가기 키 down");
-                return true;
-        }
-        return false;
-    }
+//    @Override
+//    public boolean onKeyDown(int keyCode, KeyEvent event) {
+//        switch (keyCode) {
+//            case KeyEvent.KEYCODE_BACK:
+//                Log.d("KeyUP Event", "뒤로 가기 키 down");
+//                return true;
+//        }
+//        return false;
+//    }
 
 }

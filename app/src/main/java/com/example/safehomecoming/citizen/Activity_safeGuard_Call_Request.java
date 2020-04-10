@@ -24,8 +24,8 @@ public class Activity_safeGuard_Call_Request extends AppCompatActivity
 
     private TextView
             guard_request_address_start     // 출발 지점 출력
-            ,   guard_request_address_end   // 도착 지점 출력
-            ,   button_request_safe_guard   // 버튼 _ 매칭 시작
+            , guard_request_address_end   // 도착 지점 출력
+            , button_request_safe_guard   // 버튼 _ 매칭 시작
             ;
 
     // 안심 귀가 요청할 도우미의 성별 선택 (라디오 그룹)
@@ -52,13 +52,11 @@ public class Activity_safeGuard_Call_Request extends AppCompatActivity
         guard_request_address_end = findViewById(R.id.guard_request_address_end);
 
         guard_request_radio_group = findViewById(R.id.guard_request_radio_group);
-//
-//        guard_request_radio_button_1 = findViewById(R.id.guard_request_radio_button_1);
-//        guard_request_radio_button_2 = findViewById(R.id.guard_request_radio_button_2);
-//        guard_request_radio_button_3 = findViewById(R.id.guard_request_radio_button_3);
-
         button_request_safe_guard = findViewById(R.id.button_request_safe_guard);
         // View Find 끝
+
+        guard_request_address_end.setText("07004, 서울 동작구 사당로13길 31 (사당동, 두산위브 트레지움)");
+        GET_SELECT_DESTINATION = "07004, 서울 동작구 사당로13길 31 (사당동, 두산위브 트레지움)";
 
         Log.e(TAG, "onCreate: 호출 시작할 위치: " + GET_CURRENT_CITIZEN_PATH);
         Log.e(TAG, "onCreate: 호출 시작할 번지: " + GET_CURRENT_FEATURE_NAME);
@@ -130,9 +128,9 @@ public class Activity_safeGuard_Call_Request extends AppCompatActivity
 
         // todo: 성별 선택 (라디오 그룹)
         GET_SELECT_GUARD_GENDER = "anyone"; // 기본 선택
-        Log.e(TAG, "onCheckedChanged: 출발 지점: " + GET_CURRENT_CITIZEN_PATH );
-        Log.e(TAG, "onCheckedChanged: 도착 지점: " + GET_SELECT_DESTINATION );
-        Log.e(TAG, "onCheckedChanged: 요청할 도우미 성별: " + GET_SELECT_GUARD_GENDER );
+        Log.e(TAG, "onCheckedChanged: 출발 지점: " + GET_CURRENT_CITIZEN_PATH);
+        Log.e(TAG, "onCheckedChanged: 도착 지점: " + GET_SELECT_DESTINATION);
+        Log.e(TAG, "onCheckedChanged: 요청할 도우미 성별: " + GET_SELECT_GUARD_GENDER);
         RadioGroup.OnCheckedChangeListener RadioGroup_Certi_Count = new RadioGroup.OnCheckedChangeListener()
         {
             @Override
@@ -143,9 +141,10 @@ public class Activity_safeGuard_Call_Request extends AppCompatActivity
                 {
                     GET_SELECT_GUARD_GENDER = "anyone"; // 상관 없어요
 
-                    Log.e(TAG, "onCheckedChanged: 출발 지점: " + GET_CURRENT_CITIZEN_PATH );
-                    Log.e(TAG, "onCheckedChanged: 도착 지점: " + GET_SELECT_DESTINATION );
-                    Log.e(TAG, "onCheckedChanged: 요청할 도우미 성별: " + GET_SELECT_GUARD_GENDER );
+                    Log.e(TAG, "onCheckedChanged: 출발 지점: " + GET_CURRENT_CITIZEN_PATH);
+                    Log.e(TAG, "onCheckedChanged: 도착 지점: " + GET_SELECT_DESTINATION);
+
+                    Log.e(TAG, "onCheckedChanged: 요청할 도우미 성별: " + GET_SELECT_GUARD_GENDER);
                 }
 
                 // 월 ~ 금 (주 5일)
@@ -153,9 +152,9 @@ public class Activity_safeGuard_Call_Request extends AppCompatActivity
                 {
                     GET_SELECT_GUARD_GENDER = "male"; // 남성 도우미 선택
 
-                    Log.e(TAG, "onCheckedChanged: 출발 지점: " + GET_CURRENT_CITIZEN_PATH );
-                    Log.e(TAG, "onCheckedChanged: 도착 지점: " + GET_SELECT_DESTINATION );
-                    Log.e(TAG, "onCheckedChanged: 요청할 도우미 성별: " + GET_SELECT_GUARD_GENDER );
+                    Log.e(TAG, "onCheckedChanged: 출발 지점: " + GET_CURRENT_CITIZEN_PATH);
+                    Log.e(TAG, "onCheckedChanged: 도착 지점: " + GET_SELECT_DESTINATION);
+                    Log.e(TAG, "onCheckedChanged: 요청할 도우미 성별: " + GET_SELECT_GUARD_GENDER);
                 }
 
                 // 토 ~ 일 (주 2일)
@@ -163,9 +162,9 @@ public class Activity_safeGuard_Call_Request extends AppCompatActivity
                 {
                     GET_SELECT_GUARD_GENDER = "female"; // 여성 도우미 선택
 
-                    Log.e(TAG, "onCheckedChanged: 출발 지점: " + GET_CURRENT_CITIZEN_PATH );
-                    Log.e(TAG, "onCheckedChanged: 도착 지점: " + GET_SELECT_DESTINATION );
-                    Log.e(TAG, "onCheckedChanged: 요청할 도우미 성별: " + GET_SELECT_GUARD_GENDER );
+                    Log.e(TAG, "onCheckedChanged: 출발 지점: " + GET_CURRENT_CITIZEN_PATH);
+                    Log.e(TAG, "onCheckedChanged: 도착 지점: " + GET_SELECT_DESTINATION);
+                    Log.e(TAG, "onCheckedChanged: 요청할 도우미 성별: " + GET_SELECT_GUARD_GENDER);
                 }
             }
         };
@@ -183,6 +182,7 @@ public class Activity_safeGuard_Call_Request extends AppCompatActivity
             {
                 Intent intent = new Intent(Activity_safeGuard_Call_Request.this, Activity_Wait_for_request_guard_response.class);
                 startActivity(intent);
+                finish();
             }
         });
     }
@@ -205,6 +205,8 @@ public class Activity_safeGuard_Call_Request extends AppCompatActivity
                 case 2000:
                     GET_SELECT_DESTINATION = data.getStringExtra("address"); // 도착 지점 변수
                     guard_request_address_end.setText(data.getStringExtra("address"));
+
+
                     break;
             }
         }

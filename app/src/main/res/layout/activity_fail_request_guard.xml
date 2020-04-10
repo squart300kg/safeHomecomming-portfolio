@@ -1,96 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
+    android:orientation="vertical"
     tools:context=".citizen.Activity_fail_request_guard">
 
     <LinearLayout
-        android:orientation="vertical"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:layout_marginBottom="130dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="130dp"
+        android:gravity="center"
+        android:orientation="vertical">
 
         <TextView
+            android:id="@+id/fail_message"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/white"
             android:gravity="center"
             android:padding="15dp"
-            android:background="@color/white"
             android:paddingHorizontal="15dp"
             android:text="안심 귀가 요청을 실패 했습니다"
             android:textColor="#E91E63"
-            android:textSize="20dp" />
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/button_rematch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="35dp"
-            android:padding="15dp"
             android:background="@drawable/item_edit_text_black"
+            android:padding="15dp"
             android:paddingHorizontal="15dp"
             android:text="다시 요청하기"
             android:textColor="@color/black"
             android:textSize="20dp" />
 
         <TextView
+            android:id="@+id/button_protected"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:layout_marginTop="35dp"
-            android:padding="8dp"
             android:background="@drawable/item_edit_text_black"
+            android:gravity="center"
+            android:padding="33dp"
             android:paddingHorizontal="15dp"
-            android:text="홀로 귀가\n\n(경계모드 활성화)"
+            android:layout_margin="50px"
+            android:text="홀로 귀가\n\n(경계모드)"
             android:textColor="@color/black"
             android:textSize="18.5dp" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_gravity="bottom"
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="vertical">
 
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <com.airbnb.lottie.LottieAnimationView
-                android:layout_marginTop="180dp"
-                android:layout_gravity="center"
                 android:id="@+id/Lottie_Intro"
                 android:layout_width="match_parent"
                 android:layout_height="411.1dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="180dp"
                 app:lottie_autoPlay="true"
                 app:lottie_fileName="broken-bus.json"
                 app:lottie_loop="true" />
 
         </FrameLayout>
 
-        <View
-            android:background="@color/gray"
-            android:layout_width="match_parent"
-            android:layout_height="0.1dp"/>
 
-        <TextView
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_marginBottom="40dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:padding="15dp"
-            android:background="@color/white"
-            android:paddingHorizontal="15dp"
-            android:text="요청 취소"
-            android:textColor="@color/black"
-            android:textSize="20dp"
-            />
+            android:layout_height="wrap_content">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.1dp"
+                android:background="@color/gray" />
+
+            <TextView
+                android:id="@+id/fail_cancel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:gravity="center"
+                android:padding="15dp"
+                android:paddingHorizontal="15dp"
+                android:text="요청 취소"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.1dp"
+                android:background="@color/gray" />
+        </LinearLayout>
 
     </LinearLayout>
 
